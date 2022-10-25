@@ -34,6 +34,7 @@ class App extends Component {
     response: '',
     post: '',
     responseToPost: '',
+    translation: '',
   };
   
   componentDidMount() {
@@ -63,6 +64,7 @@ class App extends Component {
     
     this.setState({ responseToPost: body });
   };
+
   
 render() {
     return (
