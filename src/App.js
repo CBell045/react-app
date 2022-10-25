@@ -1,31 +1,4 @@
-// import logo from './logo.svg';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
 import React, { Component } from 'react';
-
-import logo from './logo.svg';
 
 import './App.css';
 
@@ -34,17 +7,16 @@ class App extends Component {
     response: '',
     post: '',
     responseToPost: '',
-    translation: '',
   };
   
   componentDidMount() {
     this.callApi()
-      .then(res => this.setState({ response: res.express }))
+      .then(res => this.setState({ response: res.translation }))
       .catch(err => console.log(err));
   }
   
   callApi = async () => {
-    const response = await fetch('/translate');
+    const response = await fetch(`/translate/:${this.state.post}`);
     const body = await response.json();
     if (response.status !== 200) throw Error(body.message);
     
@@ -61,6 +33,7 @@ class App extends Component {
       body: JSON.stringify({ post: this.state.post }),
     });
     const body = await response.text();
+
     
     this.setState({ responseToPost: body });
   };
@@ -69,20 +42,6 @@ class App extends Component {
 render() {
     return (
       <div className="App">
-        {/* <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header> */}
         <p>{this.state.response}</p>
         <form onSubmit={this.handleSubmit}>
           <p>
@@ -95,7 +54,7 @@ render() {
           />
           <button type="submit">Submit</button>
         </form>
-        <p>{this.state.responseToPost}</p>
+        <p>Translation: {this.state.responseToPost}</p>
       </div>
     );
   }
