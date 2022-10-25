@@ -43,7 +43,7 @@ class App extends Component {
   }
   
   callApi = async () => {
-    const response = await fetch('/myExpressApp/translate');
+    const response = await fetch('/translate');
     const body = await response.json();
     if (response.status !== 200) throw Error(body.message);
     
@@ -52,7 +52,7 @@ class App extends Component {
   
   handleSubmit = async e => {
     e.preventDefault();
-    const response = await fetch('/myExpressApp/text', {
+    const response = await fetch('/text', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ class App extends Component {
 render() {
     return (
       <div className="App">
-        <header className="App-header">
+        {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
@@ -80,7 +80,7 @@ render() {
           >
             Learn React
           </a>
-        </header>
+        </header> */}
         <p>{this.state.response}</p>
         <form onSubmit={this.handleSubmit}>
           <p>
