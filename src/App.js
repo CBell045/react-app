@@ -16,7 +16,7 @@ class App extends Component {
   }
   
   callApi = async () => {
-    const response = await fetch(`/translate/:${this.state.post}`);
+    const response = await fetch("/translate");
     const body = await response.json();
     if (response.status !== 200) throw Error(body.message);
     
@@ -54,7 +54,7 @@ render() {
           />
           <button type="submit">Submit</button>
         </form>
-        <p>Translation: {this.state.responseToPost}</p>
+        <p>{this.state.responseToPost}</p>
       </div>
     );
   }
