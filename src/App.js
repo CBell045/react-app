@@ -49,44 +49,37 @@ class App extends Component {
     this.setState({ sp: body[0].translations[3].text });
   };
 
+  handleReset = () => {
+    this.setState({post: ''})
+  };
+
 
 render() {
     return (
       <div className="App">
-        {/* <p>{this.state.response}</p> */}
-        <form onSubmit={this.handleSubmit}>
+        <form id="input_box">
           <p>
             <strong>Input Text:</strong>
           </p>
           <input
+            id="input"
             type="text"
             value={this.state.post}
             onChange={e => this.setState({ post: e.target.value })}
           />
-          <button type="submit">Submit</button>
+          <div>
+            <button onClick={this.handleSubmit} type="submit">Submit</button>
+            <button onClick={this.handleReset} type="reset">Reset</button>
+          </div>
+          
         </form>
-        {/* <p>{this.state.responseToPost}</p> */}
-            <div>
-            <label for="dl">Detected Language:</label>
-                <span id="dl"> {this.state.dl}</span>
-            </div>
-            <span>
-                <label for="english">English:</label>
-                <span id="english"> {this.state.en}</span>
-            </span>
-            <span>
-                <label for="armenian">Armenian: </label>
-                <span id="armenian"> {this.state.hy}</span>
-            </span>
-            <span>
-                <label for="russian">Russian: </label>
-                <span id="russian"> {this.state.ru}</span>
-            </span>
-            <span>
-                <label for="spanish">Spanish: </label>
-                <span id="spanish"> {this.state.sp}</span>
-            </span>
-      </div>
+        <div class="container">
+          <div class="cell">English: {this.state.en}</div>
+          <div class="cell">Հայերեն: {this.state.hy}</div>
+          <div class="cell">Русский: {this.state.ru}</div>
+          <div class="cell">Español: {this.state.sp}</div>
+        </div>
+    </div>
     );
   }
 }
