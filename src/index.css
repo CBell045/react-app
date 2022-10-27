@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,4 +10,131 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+} */
+
+/* body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+} */
+
+/* HTML Selectors */
+:root {
+  --main-color: #016fb9ff;
+  --accent-1: #22aed1ff;
+  --main-background-color: #ffffffff;
+  --main-text-color: #000000ff;
+  --accent-2: #6d8ea0ff;
+}
+
+body {
+  font-family: 'Georgia';
+}
+
+
+footer {
+  background-color: var(--main-color);
+  color: white;
+  padding: 5px;
+  text-align: center;
+}
+
+header {
+  margin: auto;
+  text-align: center;
+}
+
+div {
+  margin: 20px
+}
+
+label {
+  display: inline-block;
+  min-width: 120px;
+  text-align: right;
+}
+
+main {
+  text-align: center;
+}
+
+nav {
+  background-color: var(--main-color);
+  color: white;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-around;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li:first-child {
+  display: block;
+}
+
+nav ul li {
+  display: none;
+  list-style: none;
+  margin: 10px;
+}
+
+nav ul li a {
+  color: white;
+  display: block;
+  padding: 18px;
+  text-decoration: none;
+}
+nav ul li a:hover {
+  background-color: #efefef;
+  color: black;
+}
+nav img {
+  float: left;
+  width: 100px;
+}
+
+
+/* Class Selectors */
+.active {
+  background-color: white;
+  color: black;
+}
+
+.open li {
+  display: block;
+}
+
+
+
+/* Media Queries */
+@media only screen and (min-width: 32.5em) {
+  nav ul {
+      flex-direction: row;
+  }
+  
+  nav ul li:first-child {
+      display: none;
+  }
+
+  nav ul li {
+      display: inline;
+      margin: 0 10px;
+  }
+
+  #temples {
+      grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 64em) {
+  #temples {
+      grid-template-columns: 1fr 1fr 1fr;
+  }
 }
